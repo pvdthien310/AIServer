@@ -14,12 +14,12 @@ import sys
 
 
 def load_data(ID_chu):
-   data = pd.read_excel("./data.xlsx")
+   data = pd.read_excel("./data/data.xlsx")
    data = data.drop("Note", axis = 1)
    
    custommer = data.drop(['STT','MSSV'], 1).values.tolist()
    count = [0 for i in range(len(custommer))]
-   data_his = pd.read_excel("./History.xlsx")
+   data_his = pd.read_excel("./data/History.xlsx")
    gio = []
    ID_c = 0
    for i in range(len(custommer)):
@@ -56,9 +56,9 @@ def load_data(ID_chu):
    return custommer[index][0],index
 
 def Predict(Name): 
-    data_sp = pd.read_excel("./data1.xlsx")
+    data_sp = pd.read_excel("./data/data1.xlsx")
     product = data_sp.drop('MaSanPham',1).values.tolist()
-    data_today = pd.read_excel("./Today.xlsx")
+    data_today = pd.read_excel("./data/Today.xlsx")
     rec_pro_list = []
     rec_pro = []
     rec_customer, Index = load_data(Name)
