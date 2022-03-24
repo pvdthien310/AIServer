@@ -36,7 +36,6 @@ def load_data(ID_chu):
                      gio.append(int(data_his['Thoigian'][j][0:k]))
    
    for j in range(len(gio)):
-      print(gio[j])
       for i in range(len(data_his['Thoigian'])):
          for k in range(len(data_his['Thoigian'][i])):
             if data_his['Thoigian'][i][k:k+1] == ' ':
@@ -51,8 +50,6 @@ def load_data(ID_chu):
       if count[i] > Max:
          Max = count[i]
          index = i
-   print(gio)
-   print(count)
    return custommer[index][0],index
 
 def Predict(Name): 
