@@ -18,7 +18,7 @@ def Predict(predict_data):
         # monthly_sales = dataset3[["month", "date_block_num", "branch_id", "item_id", "item_price", "item_cnt_day", "item_feature_id", "year"]].groupby(['date_block_num',"branch_id", "item_id", "item_feature_id"]).agg({"item_price":"mean","item_cnt_day":"sum","month":"min", "year":"min"}).reset_index()
         # monthly_sales.rename(columns={"item_cnt_day":"item_cnt_month"},inplace=True)
         
-        monthly_sales = read_csv('./train_data.csv',index_col=0)
+        monthly_sales = read_csv('train_data.csv',index_col=0)
         y_data = monthly_sales['item_cnt_month']
         x_data = monthly_sales.drop('item_cnt_month', axis = 1)
         
