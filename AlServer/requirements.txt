@@ -18,9 +18,6 @@ Flask==2.0.3
 flatbuffers==2.0
 fonttools==4.30.0
 gast==0.5.3
-google-auth==2.6.0
-google-auth-oauthlib==0.4.6
-google-pasta==0.2.0
 grpcio==1.44.0
 gunicorn==20.1.0
 h5py==3.6.0
@@ -33,8 +30,6 @@ Jinja2==3.0.3
 joblib==1.1.0
 jupyter-client==7.1.1
 jupyter-core==4.9.1
-keras==2.8.0
-Keras-Preprocessing==1.1.2
 kiwisolver==1.3.2
 libclang==13.0.0
 Markdown==3.3.6
@@ -76,11 +71,6 @@ six==1.16.0
 sklearn==0.0
 stack-data==0.1.4
 statsmodels==0.13.2
-tensorboard==2.8.0
-tensorboard-data-server==0.6.1
-tensorboard-plugin-wit==1.8.1
-tensorflow==2.8.0
-tensorflow-io-gcs-filesystem==0.24.0
 termcolor==1.1.0
 tf-estimator-nightly==2.8.0.dev2021122109
 threadpoolctl==3.1.0

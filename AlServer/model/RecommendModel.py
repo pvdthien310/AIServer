@@ -8,9 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from pandas import read_json
-import json
 from pandas import json_normalize
-import sys
 
 
 def load_data(ID_chu):

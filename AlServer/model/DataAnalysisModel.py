@@ -8,10 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
-from pandas import read_json
 import json
-from pandas import json_normalize
-import sys
+
 
 def Predict(predict_data):
         # dataset3 = read_csv('./sales_history_final.csv',index_col=0) 
@@ -36,5 +34,3 @@ def Predict(predict_data):
         json_str = json.dumps(list)
         print(json_str)
         return jsonify({"result" : json_str})
-         
-sys.modules['Predict'] = Predict
