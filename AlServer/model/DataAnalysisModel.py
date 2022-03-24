@@ -14,15 +14,14 @@ from pandas import json_normalize
 import sys
 
 def Predict(predict_data):
-        dataset3 = read_csv('./sales_history_final.csv',index_col=0)
-   
-        monthly_sales = dataset3[["month", "date_block_num", "branch_id", "item_id", "item_price", "item_cnt_day", "item_feature_id", "year"]].groupby(['date_block_num',"branch_id", "item_id", "item_feature_id"]).agg({"item_price":"mean","item_cnt_day":"sum","month":"min", "year":"min"}).reset_index()
-
-        monthly_sales.rename(columns={"item_cnt_day":"item_cnt_month"},inplace=True)
-
+        # dataset3 = read_csv('./sales_history_final.csv',index_col=0) 
+        # monthly_sales = dataset3[["month", "date_block_num", "branch_id", "item_id", "item_price", "item_cnt_day", "item_feature_id", "year"]].groupby(['date_block_num',"branch_id", "item_id", "item_feature_id"]).agg({"item_price":"mean","item_cnt_day":"sum","month":"min", "year":"min"}).reset_index()
+        # monthly_sales.rename(columns={"item_cnt_day":"item_cnt_month"},inplace=True)
+        
+        monthly_sales = read_csv('./train_data.csv',index_col=0)
         y_data = monthly_sales['item_cnt_month']
         x_data = monthly_sales.drop('item_cnt_month', axis = 1)
-
+        
         X = preprocessing.StandardScaler().fit(x_data).transform(x_data)
         x_train, x_test, y_train, y_test = train_test_split(X, y_data, test_size = 0.25, random_state = 42)
        
