@@ -1,14 +1,6 @@
 from flask import jsonify
 import pandas as pd
 import numpy as np 
-from pandas import read_csv
-from sklearn import preprocessing
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-from sklearn.ensemble import RandomForestRegressor
-from pandas import read_json
-from pandas import json_normalize
 
 
 def load_data(ID_chu):
