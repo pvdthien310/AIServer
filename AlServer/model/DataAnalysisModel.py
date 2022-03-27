@@ -6,7 +6,6 @@ from pandas import read_csv
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 import json
 
@@ -28,8 +27,7 @@ def Predict(predict_data):
 
         df = pd.DataFrame(data=predict_data)
         result = forest_reg.predict(df)
-    
-    
+
         list = result.tolist()
         json_str = json.dumps(list)
         print(json_str)

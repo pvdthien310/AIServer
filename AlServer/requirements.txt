@@ -59,7 +59,6 @@ sklearn==0.0
 stack-data==0.1.4
 statsmodels==0.13.2
 termcolor==1.1.0
-tf-estimator-nightly==2.8.0.dev2021122109
 threadpoolctl==3.1.0
 tomli==1.2.3
 traitlets==5.1.1
@@ -68,4 +67,3 @@ urllib3==1.26.8
 wcwidth==0.2.5
 Werkzeug==2.0.3
 wrapt==1.14.0
-xgboost==1.5.2
