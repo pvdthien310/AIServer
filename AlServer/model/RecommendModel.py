@@ -12,12 +12,12 @@ from pandas import json_normalize
 
 
 def load_data(ID_chu):
-   data = pd.read_excel("./data/data.xlsx")
+   data = pd.read_excel("./data/customer.xlsx")
    data = data.drop("Note", axis = 1)
    
    custommer = data.drop(['STT','MSSV'], 1).values.tolist()
    count = [0 for i in range(len(custommer))]
-   data_his = pd.read_excel("./data/History2.xlsx")
+   data_his = pd.read_excel("./data/history.xlsx")
    gio = []
    ID_c = 0
    for i in range(len(custommer)):
@@ -51,11 +51,10 @@ def load_data(ID_chu):
    return custommer[index][0],index
 
 def Predict(Name): 
-    data_sp = pd.read_excel("./data/data2.xlsx")
+    data_sp = pd.read_excel("./data/product.xlsx")
     productList = data_sp.values
-    print(productList)
     product = data_sp.drop('MaSanPham',1).values.tolist()
-    data_today = pd.read_excel("./data/Today2.xlsx")
+    data_today = pd.read_excel("./data/today.xlsx")
     rec_pro_list = []
     rec_pro = []
     rec_customer, Index = load_data(Name)
