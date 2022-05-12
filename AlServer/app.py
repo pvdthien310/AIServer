@@ -13,9 +13,10 @@ import json
 from pandas import json_normalize
 from model import DataAnalysisModel
 from model import RecommendModel
+from flask_cors import CORS
 
 app = Flask('__name__')
-
+CORS(app)
 
 # Data Analysis
 @app.route('/', methods = ['POST'])
