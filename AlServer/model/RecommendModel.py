@@ -17,7 +17,7 @@ def load_data(ID_chu):
    
    custommer = data.drop(['STT','MSSV'], 1).values.tolist()
    count = [0 for i in range(len(custommer))]
-   data_his = pd.read_excel("./data/History.xlsx")
+   data_his = pd.read_excel("./data/History2.xlsx")
    gio = []
    ID_c = 0
    for i in range(len(custommer)):
@@ -51,19 +51,22 @@ def load_data(ID_chu):
    return custommer[index][0],index
 
 def Predict(Name): 
-    data_sp = pd.read_excel("./data/data1.xlsx")
+    data_sp = pd.read_excel("./data/data2.xlsx")
+    productList = data_sp.values
+    print(productList)
     product = data_sp.drop('MaSanPham',1).values.tolist()
-    data_today = pd.read_excel("./data/Today.xlsx")
+    data_today = pd.read_excel("./data/Today2.xlsx")
     rec_pro_list = []
     rec_pro = []
     rec_customer, Index = load_data(Name)
     
     for i in range(len(data_today['TenKhachHang'])):
         if rec_customer == data_today['TenKhachHang'][i]:
-            rec_pro_list.append(int(data_today['MaSanPham'][i]))
-    for i in range(len(rec_pro_list)):
-        if product[rec_pro_list[i]] not in rec_pro:
-            rec_pro.append(product[rec_pro_list[i]])
+            rec_pro_list.append(data_today['MaSanPham'][i])
+    for i in range(len(productList)):
+       if productList[i][1] in rec_pro_list:
+        if productList[i][1] not in rec_pro:
+            rec_pro.append(productList[i][1])
     return jsonify(rec_pro)
 
 
