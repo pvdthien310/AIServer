@@ -1,3 +1,4 @@
+import json
 from flask import jsonify
 import pandas as pd
 import numpy as np 
@@ -50,11 +51,14 @@ def load_data(ID_chu):
          index = i
    return custommer[index][0],index
 
-def Predict(Name): 
+def Predict(Name, newdata): 
+    new_data = pd.DataFrame(newdata)
     data_sp = pd.read_excel("./data/product.xlsx")
     productList = data_sp.values
     product = data_sp.drop('MaSanPham',1).values.tolist()
     data_today = pd.read_excel("./data/today.xlsx")
+    data_today = data_today.append(new_data, ignore_index=True)
+    print(data_today)
     rec_pro_list = []
     rec_pro = []
     rec_customer, Index = load_data(Name)

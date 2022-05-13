@@ -27,8 +27,8 @@ def data_analysis():
 # Recommend System 
 @app.route('/rs', methods = ['POST'])
 def recommend_system():
-    data = request.json  
-    return RecommendModel.Predict(request.json['name'])
+    data = request.json
+    return RecommendModel.Predict(request.json['name'],request.json['data'])
     
 
 if __name__ == '__main__':
