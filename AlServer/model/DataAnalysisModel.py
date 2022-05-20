@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from pandas import read_csv
 from sklearn import preprocessing
+from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
@@ -20,11 +21,12 @@ def Predict(predict_data):
         y_data = monthly_sales['item_cnt_month']
         x_data = monthly_sales.drop('item_cnt_month', axis = 1)
         
-        X = preprocessing.StandardScaler().fit(x_data).transform(x_data)
-        x_train, x_test, y_train, y_test = train_test_split(X, y_data, test_size = 0.25, random_state = 42)
+        # X = preprocessing.StandardScaler().fit(x_data).transform(x_data)
+        # x_train, x_test, y_train, y_test = train_test_split(X, y_data, test_size = 0.25, random_state = 42)
        
-        forest_reg = RandomForestRegressor(n_estimators = 135, max_depth=20, random_state=42, n_jobs= 16, criterion='squared_error')
-        forest_reg.fit(x_train, y_train)
+        # forest_reg = RandomForestRegressor(n_estimators = 135, max_depth=20, random_state=42, n_jobs= 16, criterion='squared_error')
+        forest_reg = LinearRegression()
+        forest_reg.fit(x_data, y_data)
 
         df = pd.DataFrame(data=predict_data)
         result = forest_reg.predict(df)
