@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 import json
+import xgboost as xg
 
 
 def Predict(predict_data):
@@ -24,13 +25,16 @@ def Predict(predict_data):
         # X = preprocessing.StandardScaler().fit(x_data).transform(x_data)
         # x_train, x_test, y_train, y_test = train_test_split(X, y_data, test_size = 0.25, random_state = 42)
        
-        # forest_reg = RandomForestRegressor(n_estimators = 135, max_depth=20, random_state=42, n_jobs= 16, criterion='squared_error')
-        forest_reg = LinearRegression()
+        forest_reg = RandomForestRegressor(n_estimators = 135, max_depth=20, random_state=42, n_jobs= 16, criterion='squared_error')
+        # forest_reg = LinearRegression()
         forest_reg.fit(x_data, y_data)
 
         df = pd.DataFrame(data=predict_data)
         result = forest_reg.predict(df)
     
+        # xgb_regressor = xg.XGBRegressor(n_estimators = 150, learning_rate = 0.2, random_state = 42, n_jobs = 16)
+        # xgb_regressor.fit(x_data, y_data)
+        # result = xgb_regressor.predict(df)
     
         list = result.tolist()
         json_str = json.dumps(list)
