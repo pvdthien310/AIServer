@@ -10,8 +10,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 import json
-import xgboost as xg
-
 
 def Predict(predict_data):
         # dataset3 = read_csv('./sales_history_final.csv',index_col=0) 
