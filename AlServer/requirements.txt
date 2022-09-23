@@ -11,3 +11,4 @@ Flask-Cors==3.0.10
 gensim==4.2.0
 keras==2.10.0
 tensorflow-cpu==2.10.0
+openpyxl==3.0.9
