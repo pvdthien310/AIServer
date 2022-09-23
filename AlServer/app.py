@@ -1,18 +1,7 @@
-from this import d
-from flask import Flask, jsonify, render_template, request
-import numpy as np 
-import pandas as pd
-from pandas import read_csv
-from sklearn import preprocessing
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-from sklearn.ensemble import RandomForestRegressor
-from pandas import read_json
-import json
-from pandas import json_normalize
+from flask import Flask,  request
 from model import DataAnalysisModel
 from model import RecommendModel
+from model import SentimentModel
 from flask_cors import CORS
 
 app = Flask('__name__')
@@ -29,6 +18,11 @@ def data_analysis():
 def recommend_system():
     data = request.json
     return RecommendModel.Predict(request.json['name'],request.json['data'])
+    
+# Sentiment
+@app.route('/sentiment', methods = ['POST'])
+def sentiment():
+    return SentimentModel.Predict(request.json['sentence'])
     
 
 if __name__ == '__main__':
